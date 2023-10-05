@@ -30,5 +30,7 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users/create', [UserController::class, 'store']);
 Route::delete('/users/{user}', [UserController::class, 'destroy']);
+Route::get('users/{user}/edit', [UserController::class, 'edit']);
+Route::put('users/{user}', [UserController::class, 'update']);
 
 require __DIR__.'/auth.php';

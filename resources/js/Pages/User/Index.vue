@@ -50,8 +50,8 @@
                             {{ formatDate(user.created_at) }}
                         </td>
                         <td class="px-6 py-4">
-                            <a href=""
-                                class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5">Edit</a>
+                            <Link :href="`/users/${user.id}/edit`"
+                                class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5">Edit</Link>
                             <button @click="destroy(user.id)"
                                 class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-200 font-medium rounded-lg text-sm px-5 py-2.5 ml-1">Delete</button>
                         </td>
