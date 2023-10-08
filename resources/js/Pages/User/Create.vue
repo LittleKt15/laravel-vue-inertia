@@ -11,7 +11,7 @@
 
         <div class="grid md:grid-cols-3">
             <div>
-                <Form :errors="errors"></Form>
+                <Form :user="user" :errors="errors"></Form>
             </div>
         </div>
     </div>
@@ -21,11 +21,7 @@
 import { Link } from '@inertiajs/vue3'
 import Form from './Form.vue'
 
-const errors = {
-    name: null,
-    email: null,
-    password: null,
-}
+const { user, errors } = defineProps({ user: Object, errors: Object })
 </script>
 
 <style lang="scss" scoped></style>

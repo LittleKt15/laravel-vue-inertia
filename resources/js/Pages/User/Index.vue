@@ -75,7 +75,6 @@ export default {
             this.$inertia.delete(`/users/${id}`);
         },
         formatDate(date) {
-            // return format(new Date(date), 'yyyy-MM-dd HH:mm:ss');
             return format(new Date(date), 'MM/dd/yyyy');
         }
     }
