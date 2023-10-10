@@ -13,10 +13,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $users = User::when($request->get('search') ?? '', function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%")->orWhere('email', 'like', "%{$search}%");
+        })->paginate(5);
+
         return Inertia::render('User/Index', [
-            'users' => User::orderBy('id', 'desc')->get(),
+            'users' => $users,
+            'search' => $request->get('search', ''),
         ]);
     }
 
@@ -41,7 +46,6 @@ class UserController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        // dd($request->all());
         User::create([
             'name' => $request->name,
             'email' => $request->email,

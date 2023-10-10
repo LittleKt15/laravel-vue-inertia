@@ -19,9 +19,9 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
-import Form from './Form.vue'
+import Form from '../../Components/Form.vue'
 
-const { user, errors } = defineProps({ user: Object, errors: Object })
+defineProps({ user: Object, errors: Object })
 </script>
 
 <style lang="scss" scoped></style>

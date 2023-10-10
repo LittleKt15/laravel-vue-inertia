@@ -19,6 +19,9 @@
             <div v-if="$page.props.del" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                 <span class="font-medium text-lg">{{ $page.props.del }}</span>
             </div>
+
+            <SearchInput></SearchInput>
+
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-300">
                     <tr>
@@ -40,7 +43,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in users" :key="user.id" class="bg-white border-b">
+                    <!-- <tr v-for="user in users" :key="user.id" class="bg-white border-b"> -->
+                    <tr v-for="user in users.data" :key="user.id" class="bg-white border-b"> <!-- For Pagination -->
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ user.id }}
                         </th>
@@ -65,6 +69,7 @@
             </table>
         </div>
 
+        <Pagination :users="users"></Pagination>
     </div>
 </template>
 
@@ -84,6 +89,8 @@ export default {
 <script setup>
 import { format } from 'date-fns';
 import { Link } from '@inertiajs/vue3'
+import Pagination from '../../Components/Pagination.vue'
+import SearchInput from '../../Components/SearchInput.vue'
 
 defineProps({ users: Object })
 </script>
