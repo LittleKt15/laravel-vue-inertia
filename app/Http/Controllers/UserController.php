@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('User/Create', [
+        return Inertia::render('User/CreateEdit', [
             'user' => new User,
         ]);
     }
@@ -69,7 +69,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return Inertia::render('User/Edit', [
+        return Inertia::render('User/CreateEdit', [
             'user' => $user,
         ]);
     }

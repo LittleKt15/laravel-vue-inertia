@@ -1,5 +1,14 @@
 <template>
-    <div>
+    <div class="container max-w-lg mx-auto bg-gray-50 border border-gray-200 rounded-lg p-10 md:mt-24">
+        <div class="flex">
+            <div class="text-3xl mb-5">{{ user.id === null || user.id === undefined ? 'Create' : 'Edit' }} User Form</div>
+            <div>
+                <Link href="/users"
+                    class="inline-block text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 ms-5">
+                Back</Link>
+            </div>
+        </div>
+
         <form @submit.prevent="submit">
             <div class="mb-3">
                 <label for="name" class="block mb-2 text-md font-medium">Name</label>
@@ -38,7 +47,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { router } from '@inertiajs/vue3'
+import { router, Link } from '@inertiajs/vue3'
 
 const { user, errors } = defineProps({ user: Object, errors: Object })
 
